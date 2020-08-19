@@ -1,9 +1,9 @@
 #footer {
-    position: fixed;
+    /* position: fixed; */
     left: 0;
     bottom: 0;
     width: 100%;
-    margin-bottom: -15px;
+    /* margin-bottom: -15px; */
 }
 
 #footer-header {
@@ -42,6 +42,6 @@
 }
 
 #footer-row-three {
-    margin-top: -15px;
+    margin-top: -10px;
     margin-bottom: -25px;
 }
