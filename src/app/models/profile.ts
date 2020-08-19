@@ -1,4 +1,4 @@
-export class profile {
+export class Profile {
     profileId: number;
     userId: number;
     resume: string;
