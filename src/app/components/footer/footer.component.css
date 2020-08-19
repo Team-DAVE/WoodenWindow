@@ -1,0 +1,47 @@
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: -15px;
+}
+
+#footer-header {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#footer-button {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rebeccapurple;
+    color: white;
+    font-size: 25px;
+}
+
+#footer-button:hover {
+    background-color: white;
+    color: rebeccapurple;
+    border: none;
+}
+
+#copyright {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 12px;
+}
+
+#footer-row-one {
+    margin-top: -15px;
+    margin-bottom: -15px;
+}
+
+#footer-row-two {
+    margin-top: -15px;
+    margin-bottom: -15px;
+}
+
+#footer-row-three {
+    margin-top: -15px;
+    margin-bottom: -25px;
+}
