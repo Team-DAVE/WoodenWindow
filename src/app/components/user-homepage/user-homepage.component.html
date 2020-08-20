@@ -18,20 +18,26 @@
             <li>
                 <a [ngClass]="{ 'is-active':userSideNavabarSelection==='newProfile'}" (click)="setUserSideNavbarSelection('newProfile')">Create New Profile</a>
                 <ul>
+                    <p *ngIf="userProfiles.length > 0" class="menu-label">Current Profiles</p>
                     <li *ngFor="let profile of userProfiles">
-                        <a>{{ profile.profileName }}</a>
+                        <a [ngClass]="{ 'is-active':userSideNavabarSelection===profile.profileName}" (click)="setUserSideNavbarSelection(profile.profileName)">{{ profile.profileName }}</a>
                     </li>
                 </ul> 
             </li>
         </ul>
         <p class="menu-label">
-            Owned Businesses
+            Businesses
         </p>
         <ul class="menu-list">
-            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='newsStream'}" (click)="setUserSideNavbarSelection('newsStream')">News Stream</a></li>
-            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='updateName'}" (click)="setUserSideNavbarSelection('updateName')">Update Name</a></li>
-            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='updateAddress'}" (click)="setUserSideNavbarSelection('updateAddress')">Update Address</a></li>
-            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='updatePassword'}" (click)="setUserSideNavbarSelection('updatePassword')">Update Password</a></li>
+            <li>
+                <a [ngClass]="{ 'is-active':userSideNavabarSelection==='newBusiness'}" (click)="setUserSideNavbarSelection('newBusiness')">Create New Business</a>
+                <ul>
+                    <p *ngIf="userBusinesses.length > 0" class="menu-label">Current Businesses</p>
+                    <li *ngFor="let business of userBusinesses">
+                        <a [ngClass]="{ 'is-active':userSideNavabarSelection===business.name}" (click)="setUserSideNavbarSelection(business.name)">{{ business.name }}</a>
+                    </li>
+                </ul> 
+            </li>
         </ul>
         </aside>
         <div class="column is-9">

@@ -30,6 +30,13 @@ export class UserService {
         email: 'testThree@host.com',
         firstName: 'Test',
         lastName: 'Three',
+      },
+      {
+        userId: 4,
+        password: 'password',
+        email: 'testFour@host.com',
+        firstName: 'Test',
+        lastName: 'Four',
       }
     ];
    }
