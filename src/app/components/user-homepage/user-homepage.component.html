@@ -1,6 +1,37 @@
-<mat-sidenav-container class="example-container" *ngIf="shouldRun">
-    <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
-    <mat-sidenav-content>Main content</mat-sidenav-content>
-  </mat-sidenav-container>
-  
-  <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
+<div class="hero-body">
+    <div class="columns" id="homepage-container">
+        <aside class="menu column is-3" id="sidebar">
+            <h1 id="side-navbar-header">Welcome User</h1>
+        <p class="menu-label">
+            User Information
+        </p>
+        <ul class="menu-list">
+            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='newsStream'}" (click)="setUserSideNavbarSelection('newsStream')">News Stream</a></li>
+            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='updateName'}" (click)="setUserSideNavbarSelection('updateName')">Update Name</a></li>
+            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='updateAddress'}" (click)="setUserSideNavbarSelection('updateAddress')">Update Address</a></li>
+            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='updatePassword'}" (click)="setUserSideNavbarSelection('updatePassword')">Update Password</a></li>
+        </ul>
+        <p class="menu-label">
+            Application Profiles
+        </p>
+        <ul class="menu-list">
+            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='newsStream'}" (click)="setUserSideNavbarSelection('newsStream')">News Stream</a></li>
+            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='updateName'}" (click)="setUserSideNavbarSelection('updateName')">Update Name</a></li>
+            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='updateAddress'}" (click)="setUserSideNavbarSelection('updateAddress')">Update Address</a></li>
+            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='updatePassword'}" (click)="setUserSideNavbarSelection('updatePassword')">Update Password</a></li>
+        </ul>
+        <p class="menu-label">
+            Owned Businesses
+        </p>
+        <ul class="menu-list">
+            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='newsStream'}" (click)="setUserSideNavbarSelection('newsStream')">News Stream</a></li>
+            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='updateName'}" (click)="setUserSideNavbarSelection('updateName')">Update Name</a></li>
+            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='updateAddress'}" (click)="setUserSideNavbarSelection('updateAddress')">Update Address</a></li>
+            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='updatePassword'}" (click)="setUserSideNavbarSelection('updatePassword')">Update Password</a></li>
+        </ul>
+        </aside>
+        <div class="column is-9">
+            <h1>test</h1>
+        </div>
+    </div>
+</div>

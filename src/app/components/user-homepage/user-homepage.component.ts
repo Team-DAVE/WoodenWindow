@@ -6,11 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-homepage.component.css']
 })
 export class UserHomepageComponent implements OnInit {
-  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
+  userSideNavabarSelection = 'newsStream';
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setUserSideNavbarSelection(newSelection: string): void {
+    this.userSideNavabarSelection = newSelection;
   }
 
 }
