@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { UserHomepageComponent } from './components/user-homepage/user-homepage.component';
 
 import { UserService } from './services/user.service';
+import { ProfileService } from './services/profile.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { UserService } from './services/user.service';
     MatIconModule,
     MatSidenavModule
   ],
-  providers: [UserService],
+  providers: [UserService, ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,7 +12,6 @@ export class UserService {
     this.users = [
       {
         userId: 1,
-        userName: 'testOne',
         password: 'password',
         email: 'testOne@host.com',
         firstName: 'Test',
@@ -20,7 +19,6 @@ export class UserService {
       },
       {
         userId: 2,
-        userName: 'testTwo',
         password: 'password',
         email: 'testTwo@host.com',
         firstName: 'Test',
@@ -28,7 +26,6 @@ export class UserService {
       },
       {
         userId: 3,
-        userName: 'testThree',
         password: 'password',
         email: 'testThree@host.com',
         firstName: 'Test',

@@ -15,10 +15,14 @@
             Application Profiles
         </p>
         <ul class="menu-list">
-            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='newsStream'}" (click)="setUserSideNavbarSelection('newsStream')">News Stream</a></li>
-            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='updateName'}" (click)="setUserSideNavbarSelection('updateName')">Update Name</a></li>
-            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='updateAddress'}" (click)="setUserSideNavbarSelection('updateAddress')">Update Address</a></li>
-            <li><a [ngClass]="{ 'is-active':userSideNavabarSelection==='updatePassword'}" (click)="setUserSideNavbarSelection('updatePassword')">Update Password</a></li>
+            <li>
+                <a [ngClass]="{ 'is-active':userSideNavabarSelection==='newProfile'}" (click)="setUserSideNavbarSelection('newProfile')">Create New Profile</a>
+                <ul>
+                    <li *ngFor="let profile of userProfiles">
+                        <a>{{ profile.profileName }}</a>
+                    </li>
+                </ul> 
+            </li>
         </ul>
         <p class="menu-label">
             Owned Businesses
