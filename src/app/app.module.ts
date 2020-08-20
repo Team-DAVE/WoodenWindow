@@ -14,6 +14,8 @@ import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserHomepageComponent } from './components/user-homepage/user-homepage.component';
 
+import { UserService } from './services/user.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,7 @@ import { UserHomepageComponent } from './components/user-homepage/user-homepage.
     MatIconModule,
     MatSidenavModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
