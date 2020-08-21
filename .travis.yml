@@ -4,17 +4,23 @@ language: node_js
 node_js:
   - 'stable'
 
-addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
 
+#addons is optional, it is used to install packages and sources using the APT addon
+# addons:
+#   apt:
+#     sources:
+#       - google-chrome
+#     packages:
+#       - google-chrome-stable
+
+# Cache is optional, it lets Travis store directories between builds, 
+#   useful for storing dependencies that take longer to compile
 cache:
   directories:
     - ./node_modules
 
+# Travis lifecycle : apt addons, cache, before_install, install, before_script, script, before_cache,
+#   after_success/after_failure, before_deploy, deploy, after_deploy, after_script
 install:
   - npm install
 
