@@ -6,17 +6,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserHomepageComponent } from './components/user-homepage/user-homepage.component';
 import { NewsfeedComponent } from './components/user-homepage/newsfeed/newsfeed.component';
-
-import { UserService } from './services/user.service';
-import { ProfileService } from './services/profile.service';
 import { UpdateNameComponent } from './components/user-homepage/update-name/update-name.component';
 import { UpdateAddressComponent } from './components/user-homepage/update-address/update-address.component';
 import { UpdatePasswordComponent } from './components/user-homepage/update-password/update-password.component';
@@ -25,6 +20,11 @@ import { UserProfileComponent } from './components/user-homepage/user-profile/us
 import { NewBusinessComponent } from './components/user-homepage/new-business/new-business.component';
 import { BusinessComponent } from './components/user-homepage/business/business.component';
 
+import { AppRoutingModule } from './app-routing.module';
+
+import { UserService } from './services/user.service';
+import { ProfileService } from './services/profile.service';
+import { BusinessService } from './services/business.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,7 @@ import { BusinessComponent } from './components/user-homepage/business/business.
     MatIconModule,
     MatSidenavModule
   ],
-  providers: [UserService, ProfileService],
+  providers: [UserService, ProfileService, BusinessService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
