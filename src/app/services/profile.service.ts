@@ -52,4 +52,8 @@ export class ProfileService {
   getUserProfiles(userId: number): Profile[] {
     return this.profiles.filter( profile => profile.userId === userId);
   }
+
+  getProfile(profileId: number): Profile {
+    return this.profiles.find( profile => profile.profileId === profileId);
+  }
 }

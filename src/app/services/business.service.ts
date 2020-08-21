@@ -79,12 +79,15 @@ export class BusinessService {
   getBusinessesByUserId(userId: number): Business[] {
     let businessIds: UserBusinessJoin[];
     businessIds = this.join.filter( entry => entry.userId === userId);
-    console.log(businessIds);
     let userBusinesses: Business[] = [];
     for ( let join of businessIds) {
       let business = this.bussinesses.find( x => x.businessId === join.businessId);
       userBusinesses.push(business);
     }
     return userBusinesses;
+  }
+
+  getBusiness(businessId: number): Business {
+    return this.bussinesses.find( x => x.businessId === businessId);
   }
 }

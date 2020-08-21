@@ -14,7 +14,7 @@ import { Business } from 'src/app/models/business';
   styleUrls: ['./user-homepage.component.css']
 })
 export class UserHomepageComponent implements OnInit {
-  userSideNavabarSelection = 'newsStream';
+  userSideNavabarSelection = 'newsfeed';
   user: User;
   currentUserId: number;
   userProfiles: Profile[];
