@@ -23,7 +23,7 @@ public class UsersController {
         System.out.println(userService.getUsers());
         List<Users> users = userService.getUsers();
         System.out.println(users);
-        return  new ResponseEntity<>(users, HttpStatus.OK);
+        return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
     @PostMapping

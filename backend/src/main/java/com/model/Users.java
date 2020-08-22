@@ -19,16 +19,6 @@ public class Users {
     @Column(name="LAST_NAME", nullable = false)
     private String lastName;
 
-
-  /*
-    create table if not exist FLASHCARDS (
-      flashcard_id serial,
-      flashcard_question varchar(4000) not null,
-      flashcard_answer varchar(4000) not null,
-      primary key(flashcard_id)
-    );
-   */
-
     public Users() {
     }
 
