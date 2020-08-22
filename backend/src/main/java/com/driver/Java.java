@@ -21,8 +21,8 @@ public class Java {
     public static void main(String[] args) {
         AbstractApplicationContext ac = new ClassPathXmlApplicationContext("application-context.xml");
         Java javaBean = ac.getBean( "java",Java.class);
-        javaBean.userDao.addUser("test@host.com","1234", "Test", "One");
-
+        javaBean.userDao.addUser("testone@host.com","1234", "Test", "One");
+        System.out.println(javaBean.userDao.findAll());
         ac.close();
     }
 }
