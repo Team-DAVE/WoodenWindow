@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
     selector: 'signup-form',
@@ -11,25 +12,39 @@ import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 export class SignupComponent implements OnInit{
     userForm: FormGroup;
 
-    constructor(){
+    constructor(private userService: UserService){
 
     }
 
-    ngOnInit(){
+    ngOnInit(): void {
         this.initForm();
     }
 
-    onSubmit(){
+    onSubmit(): void {
         console.log(this.userForm.value);
+        const form = JSON.stringify(this.userForm.value);
+        console.log(form);
+        this.userService.addUser(form).subscribe(
+            response => {
+                console.log('success');
+                console.log(response);
+            }
+        );
+        // console.log('button pushed');
+        // this.userService.getUser().subscribe(
+        //     response => {
+        //         console.log(response);
+        //     }
+        // );
     }
 
-    private initForm(){
+    private initForm(): void {
         this.userForm = new FormGroup({
 
-            'email':new FormControl(null, Validators.required),
-            'password':new FormControl(null,Validators.required),
-            'firstName':new FormControl(null),
-            'lastName': new FormControl(null)
+            email: new FormControl(null, Validators.required),
+            password: new FormControl(null, Validators.required),
+            firstName: new FormControl(null),
+            lastName: new FormControl(null)
 
 
         });
