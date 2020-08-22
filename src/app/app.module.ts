@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -10,6 +14,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/sign-up/signup.component';
 import { UserHomepageComponent } from './components/user-homepage/user-homepage.component';
 import { NewsfeedComponent } from './components/user-homepage/newsfeed/newsfeed.component';
 import { UpdateNameComponent } from './components/user-homepage/update-name/update-name.component';
@@ -40,7 +46,9 @@ import { BusinessService } from './services/business.service';
     NewProfileComponent,
     UserProfileComponent,
     NewBusinessComponent,
-    BusinessComponent
+    BusinessComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +57,11 @@ import { BusinessService } from './services/business.service';
     MatToolbarModule,
     AppRoutingModule,
     MatIconModule,
-    MatSidenavModule
+    MatFormFieldModule,
+    MatCardModule,
+    MatSidenavModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [UserService, ProfileService, BusinessService],
   bootstrap: [AppComponent]
