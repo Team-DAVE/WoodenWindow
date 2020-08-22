@@ -11,21 +11,18 @@ import java.util.List;
 
 @Component
 public class Java {
-    UserDao flashcardDao;
+    UserDao userDao;
 
     @Autowired
-    public Java(UserDao flashcardDao) {
-        this.flashcardDao = flashcardDao;
+    public Java(UserDao userDao) {
+        this.userDao = userDao;
     }
 
     public static void main(String[] args) {
         AbstractApplicationContext ac = new ClassPathXmlApplicationContext("application-context.xml");
-        Java m = ac.getBean( "java",Java.class);
-        m.flashcardDao.addUser("Testquestion3","answer is 103");
-        List<Users> cards =  m.flashcardDao.findAll();
-        for(Users f : cards) {
-            System.out.println(f);
-        }
+        Java javaBean = ac.getBean( "java",Java.class);
+        javaBean.userDao.addUser("test@host.com","1234", "Test", "One");
+
         ac.close();
     }
 }

@@ -30,6 +30,9 @@ public class ORMConfig {
     @Value("${hibernate.db.dialect}")
     private String dbDialect;
 
+    @Value("${hibernate.hbm2ddl.auto}")
+    private String hibernateHbm2ddl;
+
     @Bean
     public DataSource dataSource() {
         BasicDataSource ds = new BasicDataSource();
@@ -61,7 +64,7 @@ public class ORMConfig {
         props.setProperty("hibernate.dialect", dbDialect);
         props.setProperty("hibernate.show_sql", "true");
         props.setProperty("hibernate.format_sql", "true");
-        props.setProperty("hibernate.hbm2ddl.auto", "none");
+        props.setProperty("hibernate.hbm2ddl.auto", hibernateHbm2ddl);
 
         return props;
     }

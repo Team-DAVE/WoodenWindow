@@ -10,10 +10,15 @@ public class Users {
     @GeneratedValue(strategy=GenerationType.IDENTITY) // the table creates this value
     private int id;
 
-    @Column(name="USERNAME", nullable = false)
-    private String username;
+    @Column(name="EMAIL", nullable = false, unique = true)
+    private String email;
     @Column(name="PASSWORD", nullable = false)
     private String password;
+    @Column(name="FIRST_NAME", nullable = false)
+    private String firstName;
+    @Column(name="LAST_NAME", nullable = false)
+    private String lastName;
+
 
   /*
     create table if not exist FLASHCARDS (
@@ -35,28 +40,46 @@ public class Users {
         this.id = id;
     }
 
-    public String getUserName() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserName(String question) {
-        this.username = question;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String answer) {
-        this.password = answer;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     @Override
     public String toString() {
-        return "Flashcard{" +
+        return "Users{" +
                 "id=" + id +
-                ", question='" + username + '\'' +
-                ", answer='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 '}';
     }
 }
