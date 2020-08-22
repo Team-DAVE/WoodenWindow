@@ -22,7 +22,10 @@ public class UserService {
     public UserService() { };
 
     public void addUser(String email, String password, String firstName, String lastName) {
-        userDao.addUser(email, password, firstName, lastName);
+        AbstractApplicationContext ac = new ClassPathXmlApplicationContext("application-context.xml");
+        UserService userServiceBean = ac.getBean("userService", UserService.class);
+        userServiceBean.userDao.addUser(email, password, firstName, lastName);
+        ac.close();
     }
 
     public List<Users> getUsers() {

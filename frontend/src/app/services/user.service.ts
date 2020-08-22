@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 
 import { User } from '../models/users';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   users: User[];
+  userUrl = 'http://localhost:8080/WoodenWindow_war_exploded/api/user';
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
     this.users = [
       {
         userId: 1,
@@ -43,5 +46,28 @@ export class UserService {
 
   getUserById(userId: number): User {
     return this.users.find( user => user.userId === userId);
+  }
+
+  getUser(): Observable<string> {
+    console.log('service called');
+    const httpHead = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        // 'Access-Control-Allow-Orgin': '*'
+      })
+    };
+    console.log(httpHead);
+    return this.httpClient.get<string>(this.userUrl, httpHead);
+  }
+
+  addUser(userForm): Observable<string> {
+    console.log(userForm);
+    const httpHead = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Orgin': '*'
+      })
+    };
+    return this.httpClient.post<string>(this.userUrl, userForm, httpHead);
   }
 }
