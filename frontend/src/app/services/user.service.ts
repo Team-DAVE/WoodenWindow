@@ -53,14 +53,14 @@ export class UserService {
     const httpHead = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        // 'Access-Control-Allow-Orgin': '*'
+        'Access-Control-Allow-Orgin': '*'
       })
     };
     console.log(httpHead);
     return this.httpClient.get<string>(this.userUrl, httpHead);
   }
 
-  addUser(userForm): Observable<string> {
+  addUser(userForm): Observable<boolean> {
     console.log(userForm);
     const httpHead = {
       headers: new HttpHeaders({
@@ -68,6 +68,6 @@ export class UserService {
         'Access-Control-Allow-Orgin': '*'
       })
     };
-    return this.httpClient.post<string>(this.userUrl, userForm, httpHead);
+    return this.httpClient.post<boolean>(this.userUrl, userForm, httpHead);
   }
 }

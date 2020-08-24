@@ -29,17 +29,19 @@ public class UsersController {
 
     @PostMapping
     @ResponseBody
-    public ResponseEntity<String> addUser(@RequestBody Users newUser) throws URISyntaxException {
+    public boolean addUser(@RequestBody Users newUser) throws URISyntaxException {
         System.out.println("addUser controller called");
         if (newUser == null) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            System.out.println("user is empty");
+            return false;
         } else {
+            System.out.println("after else statement");
             String email = newUser.getEmail();
             String password = newUser.getPassword();
             String firstName = newUser.getFirstName();
             String lastName = newUser.getLastName();
-            userService.addUser(email, password, firstName, lastName);
-            return new ResponseEntity<>("success", HttpStatus.CREATED);
+            return userService.addUser(email, password, firstName, lastName);
+            //  return new ResponseEntity<>("success", HttpStatus.CREATED);
         }
     }
 }
