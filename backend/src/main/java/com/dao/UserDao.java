@@ -4,7 +4,6 @@ import com.model.Users;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Isolation;
@@ -27,7 +26,8 @@ public class UserDao {
     }
 
     @Transactional
-    public void addUser(String email, String password, String firstName, String lastName) {
+    public boolean addUser(String email, String password, String firstName, String lastName) {
+        System.out.println("is it breaking here");
         Users newUser = new Users();
         newUser.setEmail(email);
         newUser.setPassword(password);
@@ -35,8 +35,26 @@ public class UserDao {
         newUser.setLastName(lastName);
 
         Session session = sessionFactory.getCurrentSession();
-        session.save(newUser);
+        System.out.println("break");
+        String sql = "Select u From Users u where email = ?";
+        System.out.println("break1");
+        Query query = session.createQuery(sql);
+        query.setParameter(0, newUser.getEmail());
+        System.out.println("break2");
+        //System.out.println(query.uniqueResult());
+        if (query.uniqueResult() == null) {
+            session.save(newUser);
+            return true;
+        }
+        return false;
+        //System.out.println(session.get(Users.class, newUser.getEmail()));
+        //System.out.println("break here");
+
+
+
+        //session.save(newUser);
     }
+
 
     @Transactional(isolation = Isolation.READ_COMMITTED, readOnly=true)
     public List<Users> findAll() {

@@ -1,7 +1,6 @@
 package com.service;
 
 import com.dao.UserDao;
-import com.driver.Java;
 import com.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -21,11 +20,19 @@ public class UserService {
 
     public UserService() { };
 
-    public void addUser(String email, String password, String firstName, String lastName) {
+    public boolean addUser(String email, String password, String firstName, String lastName) {
+        System.out.println("where is it breaking");
         AbstractApplicationContext ac = new ClassPathXmlApplicationContext("application-context.xml");
         UserService userServiceBean = ac.getBean("userService", UserService.class);
-        userServiceBean.userDao.addUser(email, password, firstName, lastName);
-        ac.close();
+        if (userServiceBean.userDao.addUser(email, password, firstName, lastName)) {
+            ac.close();
+            return true;
+        }
+        else {
+            ac.close();
+            return false;
+        }
+
     }
 
     public List<Users> getUsers() {

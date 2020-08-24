@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
     selector: 'signup-form',
     templateUrl: './signup.component.html',
-    styleUrls: ['./signup.component.css']
-
+    styleUrls: ['./signup.component.css'],
 })
 
 export class SignupComponent implements OnInit{
@@ -26,10 +26,18 @@ export class SignupComponent implements OnInit{
         console.log(form);
         this.userService.addUser(form).subscribe(
             response => {
-                console.log('success');
-                console.log(response);
+                console.log('success00');
+                console.log('The response is ' + response);
+                // @ts-ignore
+              // tslint:disable-next-line
+              if (response == true) {
+                  // redirect to main page
+                }
+                else {
+                  alert('The email used already exists');
+                }
             }
-        );
+    );
         // console.log('button pushed');
         // this.userService.getUser().subscribe(
         //     response => {
