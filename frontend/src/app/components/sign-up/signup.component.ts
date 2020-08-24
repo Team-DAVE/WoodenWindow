@@ -27,15 +27,15 @@ export class SignupComponent implements OnInit{
         this.userService.addUser(form).subscribe(
             response => {
                 console.log('success');
-                console.log(response);
+                console.log('The response is ' + response);
+                if (response === true) {
+                    // redirect to main page
+                    }
+                    else {
+                    alert('The email used already exists');
+                    }
             }
         );
-        // console.log('button pushed');
-        // this.userService.getUser().subscribe(
-        //     response => {
-        //         console.log(response);
-        //     }
-        // );
     }
 
     private initForm(): void {
