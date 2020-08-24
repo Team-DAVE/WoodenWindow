@@ -8,8 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URISyntaxException;
 import java.util.List;
+import java.net.URISyntaxException;
 
 @Controller
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -29,21 +29,17 @@ public class UsersController {
 
     @PostMapping
     @ResponseBody
-    public boolean addUser(@RequestBody Users newUser) throws URISyntaxException {
+    public ResponseEntity<String> addUser(@RequestBody Users newUser) throws URISyntaxException {
         System.out.println("addUser controller called");
         if (newUser == null) {
-            System.out.println("user is empty");
-            //return new ResponseEntity<>("user is empty", HttpStatus.BAD_REQUEST);
-            return false;
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         } else {
-            System.out.println("else was hit");
             String email = newUser.getEmail();
-            String json = "test";
             String password = newUser.getPassword();
             String firstName = newUser.getFirstName();
             String lastName = newUser.getLastName();
-            return userService.addUser(email, password, firstName, lastName);
-
+            userService.addUser(email, password, firstName, lastName);
+            return new ResponseEntity<>("success", HttpStatus.CREATED);
         }
     }
 }

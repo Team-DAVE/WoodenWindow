@@ -10,7 +10,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class UserService {
   users: User[];
   userUrl = 'http://localhost:8080/WoodenWindow_war_exploded/api/user';
-  private s: string;
 
   constructor(private httpClient: HttpClient) {
     this.users = [
@@ -63,7 +62,6 @@ export class UserService {
 
   addUser(userForm): Observable<string> {
     console.log(userForm);
-    this.s = 'error';
     const httpHead = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
