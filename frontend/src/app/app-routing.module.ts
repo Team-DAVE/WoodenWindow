@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './components/home/home.component';
+import { SignupComponent } from './components/sign-up/signup.component';
+import { LoginComponent } from './components/login/login.component';
 import { UserHomepageComponent } from './components/user-homepage/user-homepage.component';
 import { NewsfeedComponent } from './components/user-homepage/newsfeed/newsfeed.component';
 import { UpdateNameComponent } from './components/user-homepage/update-name/update-name.component';
@@ -15,6 +17,8 @@ import { BusinessComponent } from './components/user-homepage/business/business.
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'signup', component: SignupComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'user/:userId', component: UserHomepageComponent,
     children: [
       {path: '', component: NewsfeedComponent},
