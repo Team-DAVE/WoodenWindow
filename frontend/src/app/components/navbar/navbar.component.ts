@@ -16,8 +16,8 @@ export class NavbarComponent implements OnInit {
 
   isLogin(){
     if(JSON.parse(localStorage.getItem('userInfo')) != null){
-      this.isButtonVisible = false;
-      return this.isButtonVisible;
+
+      return false;
     }
     else{
       return true;
@@ -28,8 +28,7 @@ export class NavbarComponent implements OnInit {
 
     localStorage.setItem('userInfo', null);
     if(JSON.parse(localStorage.getItem('userInfo')) != null){
-      this.isButtonVisible = false;
-      return this.isButtonVisible;
+      return false;
     }
     else{
       return true;

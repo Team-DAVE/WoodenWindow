@@ -3,6 +3,7 @@ import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/users';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
     selector: 'login-form',
@@ -14,7 +15,7 @@ import { User } from 'src/app/models/users';
 export class LoginComponent implements OnInit{
     parsedUser: any;
     loginForm: FormGroup;
-    
+    loginButton: NavbarComponent;
     constructor(
         private userService: UserService,
         private router: Router
@@ -35,24 +36,17 @@ export class LoginComponent implements OnInit{
 
                 
                 console.log('success');
-//                console.log(this.user.userId);
-                
-                // this.user.userId = response.userId;
-                // this.user.email = response.email;
-                // this.user.firstName= response.firstName;
-                // this.user.lastName=response.lastName;
-                
-                // console.log('The response is ' + this.user);
-                
+
                 
                 if (response != null) {
-                    console.log('Before local storage: ')
+                    console.log('Before local storage: ');
                     localStorage.setItem('userInfo', JSON.stringify(response));
-                    console.log('After local storage')
+                    console.log('After local storage');
                     this.router.navigate(['/user/' + response.userId])
                     }
                     else {
                     alert('Username or password is incorrect. Please try again');
+                    localStorage.setItem('userInfo', null);
                     this.router.navigate(['/login'])
                     }
             }
