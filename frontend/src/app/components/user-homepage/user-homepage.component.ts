@@ -25,7 +25,8 @@ export class UserHomepageComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUserId = parseInt(this.route.snapshot.paramMap.get('userId'), 10);
-    this.user = this.userService.getUserById(this.currentUserId);
+    this.user = JSON.parse(localStorage.getItem('userInfo'));
+    console.log(this.user);
     this.userProfiles = this.profileService.getUserProfiles(this.currentUserId);
     this.userBusinesses = this.businessService.getBusinessesByUserId(this.currentUserId);
   }
