@@ -1,5 +1,5 @@
 FROM node
-WORKDIR /the/workdir/path
+WORKDIR frontend/dir
 COPY . .
 RUN npm install
 EXPOSE 3000
