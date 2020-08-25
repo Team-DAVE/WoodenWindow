@@ -4,8 +4,8 @@ matrix:
       node_js:
         - "12.18.2"
         branches:
+        # this needs to be changed to master
           only:
-            - master
             - tests
       install:
         - npm install
