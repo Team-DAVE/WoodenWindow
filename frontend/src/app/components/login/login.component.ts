@@ -13,9 +13,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 })
 
 export class LoginComponent implements OnInit{
-    parsedUser: any;
     loginForm: FormGroup;
-    loginButton: NavbarComponent;
     constructor(
         private userService: UserService,
         private router: Router
@@ -26,18 +24,13 @@ export class LoginComponent implements OnInit{
         this.initForm();
     }
 
-    
     onLogin(): void {
         console.log(this.loginForm.value);
         const form = JSON.stringify(this.loginForm.value);
         console.log(form);
         this.userService.login(form).subscribe(
             response => {
-
-                
                 console.log('success');
-
-                
                 if (response != null) {
                     console.log('Before local storage: ');
                     localStorage.setItem('userInfo', JSON.stringify(response));

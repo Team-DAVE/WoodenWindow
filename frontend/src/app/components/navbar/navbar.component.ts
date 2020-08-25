@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  isLogin(){
+  isLoggedIn(): boolean{
     if(JSON.parse(localStorage.getItem('userInfo')) != null){
 
       return false;
@@ -24,15 +24,9 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  logout(){
+  logout():void{
 
     localStorage.setItem('userInfo', null);
-    if(JSON.parse(localStorage.getItem('userInfo')) != null){
-      return false;
-    }
-    else{
-      return true;
-    }
 
   }
 }
