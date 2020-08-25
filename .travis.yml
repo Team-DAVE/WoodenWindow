@@ -6,7 +6,7 @@ matrix:
       install:
         - npm install
       script:
-        - npm test
+        - npm run test
 
     # - language: java
     #   jdk: oraclejdk8
