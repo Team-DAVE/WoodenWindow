@@ -1,11 +1,11 @@
-dist: trusty
+language: node_js
+node_js:
+  - '6.14.8'
+
+cache: npm
 
 services:
   - docker
-
-language: node_js
-node_js:
-  - 'stable'
 
 deploy:
   provider: elasticbeanstalk
@@ -20,8 +20,17 @@ deploy:
 
 # Travis lifecycle : apt addons, cache, before_install, install, before_script, script, before_cache,
 #   after_success/after_failure, before_deploy, deploy, after_deploy, after_script
+
 install:
-  - npm install
+  - npm ci
 
 script:
-  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  - npm test
+  - npm run build
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  on:
+    branch: travis
