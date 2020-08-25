@@ -3,14 +3,9 @@ matrix:
     - language: node_js
       node_js:
         - "12.18.2"
-        branches:
-        # this needs to be changed to master
-          only:
-            - tests
       install:
         - npm install
       script:
-        - ng lint
         - ng test --watch=false
 
     # - language: java
