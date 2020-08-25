@@ -3,10 +3,15 @@ matrix:
     - language: node_js
       node_js:
         - "12.18.2"
+        branches:
+          only:
+            - master
+            - tests
       install:
         - npm install
       script:
-        - ng test --watch=false
+        - ng lint 
+        - ng run test --watch=false
 
     # - language: java
     #   jdk: oraclejdk8
