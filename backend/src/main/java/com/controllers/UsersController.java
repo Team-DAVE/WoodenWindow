@@ -31,7 +31,7 @@ public class UsersController {
     @ResponseBody
     public boolean addUser(@RequestBody Users newUser) throws URISyntaxException {
         System.out.println("addUser controller called");
-        if (newUser == null) {
+        if (newUser.getEmail() == null) {
             System.out.println("user is empty");
             return false;
         } else {
