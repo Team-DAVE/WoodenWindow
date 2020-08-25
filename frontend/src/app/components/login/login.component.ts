@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/users';
-import { NavbarComponent } from '../navbar/navbar.component';
+
 
 @Component({
     selector: 'login-form',
