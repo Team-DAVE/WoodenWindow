@@ -3,10 +3,10 @@ matrix:
     - language: node_js
       node_js:
         - "12.18.2"
-        branches:
-          only:
-            - master
-            - tests
+        # branches:
+        #   only:
+        #     - master
+        #     - tests
       install:
         - npm install
       script:
