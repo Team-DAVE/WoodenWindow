@@ -43,7 +43,7 @@ public class Java {
         userOne.setFirstName("Test");
         userOne.setLastName("Two");
         javaBean.userDao.addUser(userOne.getEmail(), userOne.getPassword(), userOne.getFirstName(), userOne.getLastName());
-        Users userWithAllInfo = javaBean.userDao.findUserByEmail("testtwo@host.com");
+        Users userWithAllInfo = javaBean.userDao.findUserByEmail(userOne.getEmail());
         javaBean.profileDao.addProfile("Big Time Timmy Jim", "This is a resume.", userWithAllInfo);
         List<Profile> profiles = javaBean.profileDao.getProfilesByUserId(userWithAllInfo.getUserId());
         Profile firstProfile = profiles.get(0);
