@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/users';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +6,7 @@ import { User } from 'src/app/models/users';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  User:User;
   constructor() { }
-  public isButtonVisible = true;
 
   ngOnInit(): void {
   }
