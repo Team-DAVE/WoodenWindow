@@ -1,23 +1,22 @@
 dist: trusty
 
+services:
+  - docker
+
 language: node_js
 node_js:
   - 'stable'
 
-
-#addons is optional, it is used to install packages and sources using the APT addon
-# addons:
-#   apt:
-#     sources:
-#       - google-chrome
-#     packages:
-#       - google-chrome-stable
-
-# Cache is optional, it lets Travis store directories between builds, 
-#   useful for storing dependencies that take longer to compile
-cache:
-  directories:
-    - ./node_modules
+deploy:
+  provider: elasticbeanstalk
+  access_key_id:
+    secure: "Encrypted <access-key-id>="
+  secret_access_key:
+    secure: "Encypted <secret-access-key>="
+  region: "us-east-1"
+  app: "example-app-name"
+  env: "example-app-environment"
+  bucket_name: "the-target-S3-bucket"
 
 # Travis lifecycle : apt addons, cache, before_install, install, before_script, script, before_cache,
 #   after_success/after_failure, before_deploy, deploy, after_deploy, after_script
