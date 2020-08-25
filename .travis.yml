@@ -8,6 +8,8 @@ services:
   - docker
 
 deploy:
+
+
   provider: elasticbeanstalk
   access_key_id:
     secure: "Encrypted <access-key-id>="
@@ -27,11 +29,3 @@ install:
 script:
   - npm test
   - npm run build
-
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  on:
-    branch: travis
-    
