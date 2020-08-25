@@ -12,7 +12,7 @@ import { User } from 'src/app/models/users';
 })
 
 export class LoginComponent implements OnInit{
-    
+    parsedUser: any;
     loginForm: FormGroup;
     
     constructor(
@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit{
         this.userService.login(form).subscribe(
             response => {
 
+                
                 console.log('success');
 //                console.log(this.user.userId);
                 
@@ -45,8 +46,10 @@ export class LoginComponent implements OnInit{
                 
                 
                 if (response != null) {
-                    let returnUser = new User(response.userId,response.email,response.firstName,response.lastName);
-                    this.router.navigate(['/user/' + returnUser.userId])
+                    console.log('Before local storage: ')
+                    localStorage.setItem('userInfo', JSON.stringify(response));
+                    console.log('After local storage')
+                    this.router.navigate(['/user/' + response.userId])
                     }
                     else {
                     alert('Username or password is incorrect. Please try again');

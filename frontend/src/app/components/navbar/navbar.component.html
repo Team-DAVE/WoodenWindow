@@ -32,11 +32,14 @@
     </div>
     <div class="navbar-item">
       <div class="buttons">
-        <a class="button is-primary" routerLink="/signup">
+        <a class="button is-primary" routerLink="/signup" *ngIf="this.isButtonVisible">
           Sign up
         </a>
-        <a class="button is-primary" routerLink="/login">
+        <a class="button is-primary" routerLink="/login" *ngIf="this.isButtonVisible">
           Log in
+        </a>
+        <a class="button is-primary" routerLink="/login" *ngIf="!this.isButtonVisible" (click)= "logout()">
+          Logout
         </a>
       </div>
     </div>
