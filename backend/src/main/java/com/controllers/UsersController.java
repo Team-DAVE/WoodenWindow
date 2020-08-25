@@ -12,20 +12,20 @@ import java.util.List;
 import java.net.URISyntaxException;
 
 @Controller
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins ="*", allowedHeaders = "*")
 @RequestMapping(path="/user")
 public class UsersController {
     private UserService userService = new UserService();
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public ResponseEntity<List<Users>> getUsers() {
-        System.out.println("controller method get users invoked");
-        System.out.println(userService.getUsers());
-        List<Users> users = userService.getUsers();
-        System.out.println(users);
-        return new ResponseEntity<>(users, HttpStatus.OK);
-    }
+//    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+//    @ResponseBody
+//    public ResponseEntity<List<Users>> getUsers() {
+//        System.out.println("controller method get users invoked");
+//        System.out.println(userService.getUsers());
+//        List<Users> users = userService.getUsers();
+//        System.out.println(users);
+//        return new ResponseEntity<>(users, HttpStatus.OK);
+//    }
 
     @PostMapping
     @ResponseBody
@@ -42,6 +42,23 @@ public class UsersController {
             String lastName = newUser.getLastName();
             return userService.addUser(email, password, firstName, lastName);
             //  return new ResponseEntity<>("success", HttpStatus.CREATED);
+        }
+    }
+
+    @PostMapping(path="/login")
+    @ResponseBody
+    public ResponseEntity<?> login(@RequestBody Users currentUser) throws URISyntaxException {
+        System.out.println("Login controller called");
+        if (currentUser != null) {
+            System.out.println("User is not empty statement");
+            String email = currentUser.getEmail();
+            String password = currentUser.getPassword();
+            Users returnUser = userService.checkUser(email, password);
+            return new ResponseEntity<>(returnUser, HttpStatus.OK);
+        } else {
+
+            System.out.println("user is empty");
+            return null;
         }
     }
 }

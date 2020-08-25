@@ -1,9 +1,4 @@
-<!-- <div class="form-group">
-   <label for="name">Email</label>
-   <input type="email" class="form-control" id="email"
-          required
-          >
-</div> -->
+
 <div class = "container1">
    <div class="columns is-mobile is-centered">
       <div class="column is-5">
@@ -12,31 +7,23 @@
             <p class="has-text-centered">Login</p>
          </div>
       <div class="message-body">
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
          <div class="field">
          <div class="control">
            <p>Email</p>
-           <input class="input is-primary" type="text" placeholder="Enter Email">
+           <input class="input is-primary" type="email" formControlName="email" placeholder="Enter Email" required>
          </div>
        </div>
        <div class="field">
          <div class="control">
            <p>Password</p>
-           <input class="input is-primary" type="text" placeholder="Enter Password">
+           <input class="input is-primary" type="password" formControlName="password" placeholder="Enter Password" required>
          </div>
        </div>
-       <button class="button is-primary">Submit</button>
+       <button class="button is-primary" type="submit">Submit</button>
+      </form>
      </div>
    </article>
  </div>
 </div>
 </div>
-<!-- <div class="form-group">
-    <label for="name">Password</label>
-    <input type="text" class="form-control" id="password"
-           required
-           >
-</div> -->
-
-<!-- <div class="center">
-<button type="submit" class="is-primary btn btn-success">Login</button>
-</div> -->

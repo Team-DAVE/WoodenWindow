@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'signup-form',
@@ -12,9 +13,13 @@ import { UserService } from 'src/app/services/user.service';
 export class SignupComponent implements OnInit{
     userForm: FormGroup;
 
-    constructor(private userService: UserService){
+    constructor(
+        private userService: UserService,
+        private router: Router
+        ){
 
     }
+
 
     ngOnInit(): void {
         this.initForm();
@@ -29,7 +34,7 @@ export class SignupComponent implements OnInit{
                 console.log('success');
                 console.log('The response is ' + response);
                 if (response === true) {
-                    // redirect to main page
+                    this.router.navigate(['/login'])
                     }
                     else {
                     alert('The email used already exists');

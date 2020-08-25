@@ -35,6 +35,31 @@ public class UserService {
         }
     }
 
+    public Users checkUser(String email, String password) {
+        System.out.println("checkUser method beginning");
+        AbstractApplicationContext ac = new ClassPathXmlApplicationContext("application-context.xml");
+        UserService userServiceBean = ac.getBean("userService", UserService.class);
+        Users user = userServiceBean.userDao.findUserByEmail(email);
+        System.out.println(user);
+        System.out.println(password);
+        if (user.getPassword().equals(password)) {
+            System.out.println("password is the same");
+            user.getUserId();
+            user.getEmail();
+            user.getFirstName();
+            user.getLastName();
+
+            ac.close();
+            return user;
+//        Users userWithoutPassword;
+        }
+        else {
+            System.out.println("Password is not the same");
+            ac.close();
+        }
+        return null;
+    }
+
     public List<Users> getUsers() {
         System.out.println("service method get users invoked");
         AbstractApplicationContext ac = new ClassPathXmlApplicationContext("WEB-INF/application-context.xml");

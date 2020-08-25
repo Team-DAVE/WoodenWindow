@@ -29,6 +29,11 @@ public class Java {
         this.requiredSkillDao = requiredSkillDao;
     }
 
+//    @Autowired
+//    public Java(UserService userService) {
+//
+//        this.userService = userService;
+//    }
     public static void main(String[] args) {
         AbstractApplicationContext ac = new ClassPathXmlApplicationContext("application-context.xml");
         Java javaBean = ac.getBean( "java",Java.class);
