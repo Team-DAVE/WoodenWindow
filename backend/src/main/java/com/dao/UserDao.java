@@ -47,6 +47,15 @@ public class UserDao {
         return false;
     }
 
+    @Transactional
+    public Users findUserByEmail(String email) {
+        Session session = sessionFactory.getCurrentSession();
+        String sql = "Select u From Users u where email = ?";
+        Query query = session.createQuery(sql);
+        query.setParameter(0, email);
+        return (Users) query.uniqueResult();
+    }
+
     @Transactional(isolation = Isolation.READ_COMMITTED, readOnly=true)
     public List<Users> findAll() {
         System.out.println("dao method findall invoked");
