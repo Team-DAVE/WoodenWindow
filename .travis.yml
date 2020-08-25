@@ -9,29 +9,19 @@ services:
 
 # deploy:
 #   provider: elasticbeanstalk
-#   access_key_id:
-#     secure: "Encrypted <access-key-id>="
-#   secret_access_key:
-#     secure: "Encypted <secret-access-key>="
+#   access_key_id: 
+#     secure: "AKIAJKL2VBKLIZ6YG3PQ"
+#   secret_access_key: 
+#     secure: "uGc414FPJcIJHjFbwZG1+LdvKe10/GRUilDlXDmO"
 #   region: "us-east-1"
-#   app: "example-app-name"
-#   env: "example-app-environment"
-#   bucket_name: "the-target-S3-bucket"
-
-# deploy:
-#   provider: pages
-#   skip-cleanup: true
-#   github-token: $GITHUB_TOKEN
-#   on:
-#     branch: travis
-
-# Travis lifecycle : apt addons, cache, before_install, install, before_script, script, before_cache,
-#   after_success/after_failure, before_deploy, deploy, after_deploy, after_script
+#   app: "Project2"
+#   env: "Project2-env"
+#   bucket_name: "WoodenWindow"
 
 install:
   - npm ci
 
 script:
   - npm test
-  - npm run build
+
 
