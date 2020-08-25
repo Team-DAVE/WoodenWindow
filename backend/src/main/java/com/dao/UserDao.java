@@ -67,4 +67,13 @@ public class UserDao {
         query.setParameter(0, email);
         return (Users) query.uniqueResult();
     }
+
+    @Transactional
+    public Users findUserById(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        String sql = "Select u From Users u where userId = ?";
+        Query query = session.createQuery(sql);
+        query.setParameter(0, id);
+        return (Users) query.uniqueResult();
+    }
 }
