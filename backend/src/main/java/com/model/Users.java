@@ -26,11 +26,18 @@ public class Users {
     public Users() {
     }
 
+    public Users(int id, String email, String firstName, String lastName) {
+        this.userId = id;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public int getUserId() {
         return userId;
     }
 
-    public void setId(int userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
