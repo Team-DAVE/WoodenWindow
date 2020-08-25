@@ -1,6 +1,7 @@
 package com.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "USERS")
@@ -8,26 +9,29 @@ public class Users {
     @Id
     @Column(name="USERS_ID", columnDefinition="serial primary key")
     @GeneratedValue(strategy=GenerationType.IDENTITY) // the table creates this value
-    private int id;
+    private int userId;
 
     @Column(name="EMAIL", nullable = false, unique = true)
     private String email;
+
     @Column(name="PASSWORD", nullable = false)
     private String password;
+
     @Column(name="FIRST_NAME", nullable = false)
     private String firstName;
+
     @Column(name="LAST_NAME", nullable = false)
     private String lastName;
 
     public Users() {
     }
 
-    public int getId() {
-        return id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int userId) {
+        this.userId = userId;
     }
 
     public String getEmail() {
@@ -65,7 +69,7 @@ public class Users {
     @Override
     public String toString() {
         return "Users{" +
-                "id=" + id +
+                "id=" + userId +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
