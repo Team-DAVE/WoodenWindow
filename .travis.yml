@@ -2,7 +2,7 @@ matrix:
   include:
     - language: node_js
       node_js:
-        - "6.14.8"
+        - "12.18.2"
       install:
         - npm ci
       script:
